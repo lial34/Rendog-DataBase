@@ -84,7 +84,7 @@ export const parseData = (text) => {
       const name = itemMatch[1];
       let priceRaw = itemMatch[2];
 
-      priceRaw = priceRaw.replace(/\[\s*[1-4]강\s*.*?\]/g, '');
+      priceRaw = priceRaw.replace(/\[\s*[2-4]강\s*.*?\]/g, '');
       priceRaw = priceRaw.replace(/\[\s*[0-9]+~[0-9]+강\s*.*?\]/g, '');
       priceRaw = priceRaw.replace(/\s+/g, ' ').trim();
 
@@ -102,4 +102,5 @@ export const parseData = (text) => {
   });
 
   return items;
+
 };
