@@ -6,5 +6,12 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // ★★★ css 객체와 postcss 객체를 제거합니다. ★★★
+  build: {
+    rollupOptions: {
+      // lucide-react 모듈을 외부화하여 Rolldown이 모듈 해결 오류를 일으키는 것을 방지합니다.
+      external: [
+        'lucide-react'
+      ]
+    }
+  }
 });
