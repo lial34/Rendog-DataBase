@@ -121,9 +121,11 @@ const App = () => {
       <footer className="text-center py-10 text-gray-600 text-sm border-t border-gray-800 bg-gray-900/50">
           <p>© 2025 Rendog Market Price DB.</p>
           <p className="mt-1 opacity-50">Data updated: 2025.11.28</p>
+          <p className="mt-1 opacity-50">Update Supporter: Version7</p>
       </footer>
     </div>
   );
 };
+
 
 export default App;
