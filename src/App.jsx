@@ -100,7 +100,7 @@ const App = () => {
         </span>
         <div className="flex items-center gap-2 text-xs text-indigo-300 bg-indigo-900/30 px-3 py-1 rounded-md border border-indigo-500/30">
             <Info size={14} />
-            <span>53 = 5강 3개 | 8172 = 8강 1개 + 7강 2개</span>
+            <span>53 = 5강 30개 | 8172 = 8강 1개 + 7강 2개</span>
         </div>
       </div>
 
@@ -129,3 +129,4 @@ const App = () => {
 
 
 export default App;
+
