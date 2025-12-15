@@ -34,6 +34,12 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 font-sans selection:bg-indigo-500 selection:text-white">
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        .font-korean {
+          font-family: 'Noto Sans KR', sans-serif;
+        }
+
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -47,7 +53,7 @@ const App = () => {
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500">
             RendogDB
             </h1>
-            <p className="text-gray-400 text-lg font-light tracking-wide">
+            <p className="text-gray-300 text-lg md:text-xl font-bold tracking-tight font-korean text-center">
             아이템의 가격을 그 어떤 것보다도 간편하게.   
             </p>
         </div>
@@ -81,7 +87,7 @@ const App = () => {
                 <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border border-transparent
+                className={`px-4 py-1.5 rounded-full text-sm font-bold font-korean tracking-tight transition-all duration-200 border border-transparent
                     ${selectedCategory === cat 
                     ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30' 
                     : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white hover:border-gray-600'}`}
@@ -100,7 +106,7 @@ const App = () => {
         </span>
         <div className="flex items-center gap-2 text-xs text-indigo-300 bg-indigo-900/30 px-3 py-1 rounded-md border border-indigo-500/30">
             <Info size={14} />
-            <span>53 = 5강 3개 | 8172 = 8강 1개 + 7강 2개</span>
+            <span className="font-korean tracking-tight font-medium">53 = 5강 3개 | 8172 = 8강 1개 + 7강 2개</span>
         </div>
       </div>
 
@@ -129,6 +135,7 @@ const App = () => {
 
 
 export default App;
+
 
 
 
