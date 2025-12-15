@@ -48,7 +48,7 @@ const App = () => {
             RendogDB
             </h1>
             <p className="text-gray-400 text-lg font-light tracking-wide">
-             Get item prices faster than anyone else
+            아이템의 가격을 그 어떤 것보다도 간편하게.   
             </p>
         </div>
 
@@ -120,7 +120,7 @@ const App = () => {
       
       <footer className="text-center py-10 text-gray-600 text-sm border-t border-gray-800 bg-gray-900/50">
           <p>© 2025 Rendog Market Price DB.</p>
-          <p className="mt-1 opacity-50">Data updated: 2025.11.28</p>
+          <p className="mt-1 opacity-50">Data updated: 2025.12.15</p>
           <p className="mt-1 opacity-50">Update Supporter: Version7</p>
       </footer>
     </div>
@@ -129,5 +129,6 @@ const App = () => {
 
 
 export default App;
+
 
 
