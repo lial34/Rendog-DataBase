@@ -50,7 +50,7 @@ const App = () => {
       {/* 검색 섹션 */}
       <div className="flex flex-col items-center justify-center pt-24 pb-12 px-4">
         <div className="flex flex-col items-center animate-fade-in-down mb-8">
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 pt-0.5">
             RendogDB
             </h1>
             <p className="text-gray-300 text-lg md:text-xl font-bold tracking-tight font-korean text-center">
@@ -135,6 +135,7 @@ const App = () => {
 
 
 export default App;
+
 
 
 
