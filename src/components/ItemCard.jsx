@@ -11,6 +11,27 @@ const ItemCard = ({ item }) => {
     ? item.desc.replace(/ 우클릭:/g, '\n우클릭:').replace(/ 좌클릭:/g, '\n좌클릭:')
     : '';
 
+  const renderDescription = (text) => {
+    if (!text) return "";
+    
+    let parts = text.split(/(\*시세 변동이 심한 아이템입니다\.)/g);
+    let result = parts.map((part, i) => 
+      part === "*시세 변동이 심한 아이템입니다." ? 
+      <span key={`v-${i}`} className="effect-volatile">{part}</span> : part
+    );
+
+    return result.map((node, i) => {
+      if (typeof node === 'string') {
+        const subParts = node.split(/(\*거래량이 적은 아이템입니다\.)/g);
+        return subParts.map((subPart, j) => 
+          subPart === "*거래량이 적은 아이템입니다." ? 
+          <span key={`l-${i}-${j}`} className="effect-low-volume">{subPart}</span> : subPart
+        );
+      }
+      return node;
+    }).flat();
+  };
+
   return (
     <div className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-750 transition-all duration-200 shadow-lg group relative overflow-hidden">
       
@@ -68,5 +89,6 @@ const ItemCard = ({ item }) => {
     </div>
   );
 };
+
 
 export default ItemCard;
