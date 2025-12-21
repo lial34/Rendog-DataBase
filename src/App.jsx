@@ -45,6 +45,33 @@ const App = () => {
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in-down { animation: fadeInDown 0.8s ease-out; }
+        
+        @keyframes flow-gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .effect-volatile {
+          font-weight: 900;
+          background: linear-gradient(90deg, #ff4d4d, #f06292, #ff4d4d);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: flow-gradient 3s linear infinite;
+          display: inline-block;
+        }
+
+        .effect-low-volume {
+          font-style: italic;
+          font-weight: 400;
+          background: linear-gradient(90deg, #718096, #ffffff, #718096);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: flow-gradient 4s linear infinite;
+          display: inline-block;
+        }
       `}</style>
       
       {/* 검색 섹션 */}
@@ -135,6 +162,7 @@ const App = () => {
 
 
 export default App;
+
 
 
 
