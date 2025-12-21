@@ -51,7 +51,7 @@ const ItemCard = ({ item }) => {
           </h3>
           {formattedDesc && (
             <div className="text-gray-400 text-sm leading-relaxed whitespace-pre-wrap break-words">
-              {formattedDesc}
+              {renderDescription(formattedDesc)}
             </div>
           )}
         </div>
@@ -92,3 +92,4 @@ const ItemCard = ({ item }) => {
 
 
 export default ItemCard;
+
