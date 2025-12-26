@@ -1,15 +1,51 @@
+export const decodeSingleCode = (rawText) => {
+  const matches = rawText.match(/\d+/g);
+  if (!matches || matches.length === 0) return null;
+
+  let code = matches[matches.length - 1];
+  const results = [];
+  let tempCode = code;
+
+  while (tempCode.length > 0) {
+    if (tempCode.startsWith('10')) {
+      let countStr = "";
+      
+      if (tempCode.length >= 4 && tempCode.substring(2, 4) === "10") {
+        countStr = "10";
+      } 
+      else if (tempCode.length >= 3) {
+        countStr = tempCode.substring(2, 3);
+      }
+
+      if (countStr) {
+        results.push(`10강 강화석 ${countStr}개`);
+        tempCode = tempCode.substring(2 + countStr.length);
+        continue;
+      } else {
+        break;
+      }
+    } 
+    
+    if (tempCode.length >= 2) {
+      const star = tempCode[0];
+      const count = tempCode[1];
+      results.push(`${star}강 강화석 ${count}개`);
+      tempCode = tempCode.substring(2);
+    } else {
+      break;
+    }
+  }
+
+  return results.length > 0 ? results.join(' + ') : null;
+};
+
 export const decodePrice = (priceStr) => {
   if (!priceStr) return null;
 
   if (priceStr.includes(',')) {
     const parts = priceStr.split(',');
-    const decodedParts = parts.map(part => {
-      const trimmed = part.trim();
-      const decoded = decodePrice(trimmed); 
-      return decoded ? decoded : null;
-    });
-    const validParts = decodedParts.filter(p => p);
-    if (validParts.length > 0) return validParts.join(', ');
+    const decodedParts = parts.map(part => decodePrice(part.trim())).filter(p => p);
+    if (decodedParts.length > 0) return decodedParts.join(', ');
   }
 
   if (priceStr.includes('~')) {
@@ -23,45 +59,6 @@ export const decodePrice = (priceStr) => {
   }
 
   return decodeSingleCode(priceStr);
-};
-
-export const decodeSingleCode = (rawText) => {
-  const matches = rawText.match(/\d+/g);
-  if (!matches || matches.length === 0) return null;
-
-  const code = matches[matches.length - 1]; 
-
-  if (code.length === 2) {
-    const star = code[0];
-    const count = code[1];
-    return `${star}강 강화석 ${count}개`;
-  }
-
-  if (code.length === 4) {
-    const star1 = code[0];
-    const count1 = code[1];
-    const star2 = code[2];
-    const count2 = code[3];
-    return `${star1}강 강화석 ${count1}개 + ${star2}강 강화석 ${count2}개`;
-  }
-
-  if (code.length === 3 && code.startsWith('10')) {
-      return `10강 강화석 ${code[2]}개`;
-  }
-
-  if (code.length === 5 && code.startsWith('10')) {
-      return `10강 강화석 ${code[2]}개 + ${code[3]}강 강화석 ${code[4]}개`;
-  }
-
-  if (code.length === 6 && code.startsWith('10110')) {
-      return `10강 강화석 ${code[2]}개 + 10강 강화석 ${code[5]}개`;
-  }
-  
-  if (code.length === 7 && code.startsWith('10')) {
-      return `10강 강화석 ${code[2]}개 + ${code[3]}강 강화석 ${code[4]}개 + ${code[5]}강 강화석 ${code[6]}개`;
-  }
-
-  return null;
 };
 
 export const parseData = (text) => {
@@ -84,12 +81,12 @@ export const parseData = (text) => {
       const name = itemMatch[1];
       let priceRaw = itemMatch[2];
 
-      priceRaw = priceRaw.replace(/\[\s*[2-4]강\s*.*?\]/g, '');
+      priceRaw = priceRaw.replace(/\[\s*[0-9]+강\s*.*?\]/g, '');
       priceRaw = priceRaw.replace(/\[\s*[0-9]+~[0-9]+강\s*.*?\]/g, '');
       priceRaw = priceRaw.replace(/\s+/g, ' ').trim();
 
       currentItem = {
-        id: Math.random().toString(36).substr(2, 9),
+        id: Math.random().toString(36).substring(2, 9),
         category: currentCategory,
         name: name,
         priceRaw: priceRaw,
@@ -102,5 +99,4 @@ export const parseData = (text) => {
   });
 
   return items;
-
 };
