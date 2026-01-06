@@ -153,8 +153,9 @@ const App = () => {
       
       <footer className="text-center py-10 text-gray-600 text-sm border-t border-gray-800 bg-gray-900/50">
           <p>© 2025 Rendog Market Price DB.</p>
-          <p className="mt-1 opacity-50">Data updated: 2025.12.21</p>
-          <p className="mt-1 opacity-50">Developer: Li_al     Update Supporter: Version7</p>
+          <p className="mt-1 opacity-50">Data updated: 2026.01.07</p>
+          <p className="mt-1 opacity-50">Developer: Li_al</p>
+          <p className="mt-1 opacity-50">Update Supporter: Version7</p>
       </footer>
     </div>
   );
@@ -162,6 +163,7 @@ const App = () => {
 
 
 export default App;
+
 
 
 
