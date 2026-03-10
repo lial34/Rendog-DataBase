@@ -133,7 +133,7 @@ const App = () => {
         </span>
         <div className="flex items-center gap-2 text-xs text-indigo-300 bg-indigo-900/30 px-3 py-1 rounded-md border border-indigo-500/30">
             <Info size={14} />
-            <span className="font-korean tracking-tight font-medium">53 = 5강 3개 | 8172 = 8강 1개 + 7강 2개</span>
+            <span className="font-korean tracking-tight font-medium">53 = 5강 3개 /// 8172 = 8강 1개 + 7강 2개</span>
         </div>
       </div>
 
@@ -145,15 +145,15 @@ const App = () => {
         {filteredItems.length === 0 && (
              <div className="text-center py-20 opacity-50 flex flex-col items-center">
                  <Database className="w-16 h-16 mb-4 text-gray-600"/>
-                 <p className="text-xl text-gray-400">No items found matching "{searchTerm}"</p>
-                 <p className="text-sm text-gray-600 mt-2">Try searching for item name or category.</p>
+                 <p className="text-xl text-gray-400">검색어와 일치하는 결과가 없습니다. "{searchTerm}"</p>
+                 <p className="text-sm text-gray-600 mt-2">아이템 이름 혹은 카테고리로 검색해주세요.</p>
              </div>
         )}
       </div>
       
       <footer className="text-center py-10 text-gray-600 text-sm border-t border-gray-800 bg-gray-900/50">
           <p>© 2025-2026 Rendog Market Price DB.</p>
-          <p className="mt-1 opacity-50">Data updated: 2026.02.17</p>
+          <p className="mt-1 opacity-50">Data updated: 2026.03.10</p>
           <p className="mt-1 opacity-50">Developer: Li_al</p>
           <p className="mt-1 opacity-50">Update Supporter: Version7</p>
       </footer>
